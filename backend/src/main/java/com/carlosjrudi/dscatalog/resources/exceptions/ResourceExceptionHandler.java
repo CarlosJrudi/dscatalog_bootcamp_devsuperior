@@ -9,14 +9,16 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
-import com.carlosjrudi.dscatalog.services.exceptions.EntityNotFoundException;
+import com.carlosjrudi.dscatalog.services.exceptions.ResourceNotFoundException;
+
+
 
 @ControllerAdvice
 public class ResourceExceptionHandler {
 	// Manipulador de excessões a nível de camada resource.
 	
-	@ExceptionHandler (EntityNotFoundException.class)
-	public ResponseEntity<StandardError> entityNotFound(EntityNotFoundException e, HttpServletRequest request){
+	@ExceptionHandler (ResourceNotFoundException.class)
+	public ResponseEntity<StandardError> entityNotFound(ResourceNotFoundException e, HttpServletRequest request){
 		StandardError err = new StandardError();
 		err.setTimestamp(Instant.now());
 		err.setStatus(HttpStatus.NOT_FOUND.value());
