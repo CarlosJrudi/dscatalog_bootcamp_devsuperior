@@ -84,7 +84,7 @@ public class Product implements Serializable{
 		this.price = price;
 	}
 
-	public String getImgUri() {
+	public String getImgUrl() {
 		return imgUrl;
 	}
 
